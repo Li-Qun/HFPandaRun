@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "cc559de1aff4f46bffb9829835a8bd34"
+build_time: [1517411099, 617951000]
+inputs:
+  "/Users/hr-zhjh/Documents/2017LiqunDemo/Swift_Demo/HFPanda/HFPanda/GameScene.swift": [1517324191, 0]
+  "/Users/hr-zhjh/Documents/2017LiqunDemo/Swift_Demo/HFPanda/HFPanda/GameViewController.swift": [1517324191, 0]
+  "/Users/hr-zhjh/Documents/2017LiqunDemo/Swift_Demo/HFPanda/HFPanda/class/HFPanda.swift": !dirty [1517411099, 0]
+  "/Users/hr-zhjh/Documents/2017LiqunDemo/Swift_Demo/HFPanda/HFPanda/AppDelegate.swift": [1517324191, 0]

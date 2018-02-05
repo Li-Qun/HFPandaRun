@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+enum Status:Int {
+    case run = 1,
+    jump,
+    jump2,
+    roll
+}
 //创建一个精灵主角:熊猫
 //定义纹理：跑，跳，滚动等动作动画
 class HFPanda: SKSpriteNode {
@@ -17,10 +23,12 @@ class HFPanda: SKSpriteNode {
     let jumpAtlas = SKTextureAtlas.init(named:"jump.atlas")
     let rollAtlas = SKTextureAtlas.init(named: "roll.atlas")
     //存储纹理实例数组
-    let runFrame = [SKTexture]()
-    let jumpFrame = [SKTexture]()
-    let rollFrame = [SKTexture]()
+    var runFrame = [SKTexture]()
+    var jumpFrame = [SKTexture]()
+    var rollFrame = [SKTexture]()
     //
+    //初始化动作状态
+    var status = Status.run
     //指令构造函数
     //初始化时候默认展示图像
     init () {
@@ -28,8 +36,25 @@ class HFPanda: SKSpriteNode {
         let size = texture.size()
         //父类构造函数必实现
         super.init(texture: texture, color: UIColor.white, size: size)
+
+        //跑
+        for i in 1...runAtlas.textureNames.count {
+            let tempName = String(format: "panda_run_%.2d", i)
+            let runTexture = runAtlas.textureNamed(tempName)
+            runFrame.append(runTexture)
+        }
+        //类实例化时候就开始跑
+        run()
     }
     
+    //跑函数
+    func run () {
+        //初始化
+        self.removeAllActions()
+        self.status = .run //因为初始化过 所以直接使用枚举后缀
+        //执行跑的动作：无限循环的纹理动作 每一帧切换动作的时间为0.05s
+        self.run(SKAction.repeatForever(SKAction.animate(with: runFrame, timePerFrame: 0.05)))
+    }
     
     
     required init?(coder aDecoder: NSCoder) {

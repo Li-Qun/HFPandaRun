@@ -18,7 +18,6 @@ class GameScene: SKScene {
         self.backgroundColor = skyColor
     
         panda.position =  CGPoint.init(x: 0, y: 0)
-        
         self.addChild(panda)
     }
     

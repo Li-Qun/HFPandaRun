@@ -23,7 +23,11 @@ class GameScene: SKScene {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-     
+        if panda.status == .run {
+            panda.jump()
+        } else if panda.status == .jump {
+            panda.roll()
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {

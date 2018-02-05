@@ -39,10 +39,24 @@ class HFPanda: SKSpriteNode {
 
         //跑
         for i in 1...runAtlas.textureNames.count {
-            let tempName = String(format: "panda_run_%.2d", i)
+            let tempName = String(format: "panda_run_%.2d", i) //panda_run_01
             let runTexture = runAtlas.textureNamed(tempName)
             runFrame.append(runTexture)
         }
+        //跳
+        for i in 1...jumpAtlas.textureNames.count {
+            let tempName = String(format: "panda_jump_%.2d", i) //panda_jump_01
+            let jumpTexture = jumpAtlas.textureNamed(tempName)
+            jumpFrame.append(jumpTexture)
+        }
+        //滚
+        for i in 1...rollAtlas.textureNames.count {
+            let tempName = String(format: "panda_roll_%.2d", i) //panda_roll_01
+            let rollTexture = rollAtlas.textureNamed(tempName)
+            rollFrame.append(rollTexture)
+        }
+        
+        
         //类实例化时候就开始跑
         run()
     }
@@ -55,7 +69,22 @@ class HFPanda: SKSpriteNode {
         //执行跑的动作：无限循环的纹理动作 每一帧切换动作的时间为0.05s
         self.run(SKAction.repeatForever(SKAction.animate(with: runFrame, timePerFrame: 0.05)))
     }
-    
+    // 跳
+    func jump () {
+        self.removeAllActions()
+        self.status = .jump
+        //跳只跳一次
+        self.run(SKAction.animate(with: jumpFrame, timePerFrame: 0.05))
+    }
+    //打滚
+    func roll () {
+        self.removeAllActions()
+        self.status = .roll
+        //滚动后继续跑
+        self.run(SKAction.animate(with: rollFrame, timePerFrame: 0.05)) {
+            self.run()
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

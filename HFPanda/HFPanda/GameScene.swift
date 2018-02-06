@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     //lazy 指当前变量 在第一次使用的时候才会初始化，即“懒加载”
     lazy var panda = HFPanda()
+    lazy var platformFactory = PlatformFactory()
     
     override func didMove(to view: SKView) {
         let skyColor = SKColor.init(red:113.0/255.0, green:197.0/255.0, blue:207.0/255.0, alpha:1.0)
@@ -19,6 +20,10 @@ class GameScene: SKScene {
     
         panda.position =  CGPoint.init(x: 0, y: 0)
         self.addChild(panda)
+        
+        //把平台工厂加入场景中
+        self.addChild(platformFactory)
+        platformFactory.createPlatform(middlPlatformNum: 2, x: -200, y: -panda.frame.size.height)
     }
     
     

@@ -14,6 +14,8 @@ class GameScene: SKScene {
     lazy var panda = HFPanda()
     lazy var platformFactory = PlatformFactory()
     
+    var platformMoveSpeed:CGFloat = 15;//初始化速度
+    
     override func didMove(to view: SKView) {
         let skyColor = SKColor.init(red:113.0/255.0, green:197.0/255.0, blue:207.0/255.0, alpha:1.0)
         self.backgroundColor = skyColor
@@ -34,8 +36,9 @@ class GameScene: SKScene {
             panda.roll()
         }
     }
-    
+    //每一帧执行一次的系统update方法
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        self.platformFactory.moveWithPlatformSpeed(speed: self.platformMoveSpeed);
     }
 }

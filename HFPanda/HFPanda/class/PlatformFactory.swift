@@ -13,6 +13,8 @@ class PlatformFactory: SKNode {
     let textureLeft = SKTexture.init(imageNamed:"platform_l")
     let textureRight = SKTexture.init(imageNamed:"platform_r")
     let textureMiddle = SKTexture.init(imageNamed:"platform_m")
+    //存放创建平台的数组集
+    var platformsArray = [Platform]();
     
     //根据传进来的中间平台数目，搭建完整平台条 （L = 1，R = 1，M >= 1,所以只需要控制M）
     //根据 坐标x,y 得知创建平台的位置高低
@@ -42,9 +44,15 @@ class PlatformFactory: SKNode {
         platform.onCreatePlatform(spriteArray: middlePlatformTexturesArray)
         self.addChild(platform)
         
-        
-        
+        //平台加入集合
+        platformsArray.append(platform)
     }
     
+    //平台移动
+    func moveWithPlatformSpeed(speed:CGFloat)  {
+        for obj in self.platformsArray {
+            obj.position.x -= speed
+        }
+    }
     
 }

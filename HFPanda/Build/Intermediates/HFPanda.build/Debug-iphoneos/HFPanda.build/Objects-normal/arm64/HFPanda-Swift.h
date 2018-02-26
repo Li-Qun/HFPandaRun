@@ -240,5 +240,19 @@ SWIFT_CLASS("_TtC7HFPanda7HFPanda")
 - (nonnull instancetype)initWithTexture:(SKTexture * _Nullable)texture color:(UIColor * _Nonnull)color size:(CGSize)size SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_CLASS("_TtC7HFPanda8Platform")
+@interface Platform : SKNode
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC7HFPanda15PlatformFactory")
+@interface PlatformFactory : SKNode
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 SWIFT_MODULE_NAMESPACE_POP
 #pragma clang diagnostic pop

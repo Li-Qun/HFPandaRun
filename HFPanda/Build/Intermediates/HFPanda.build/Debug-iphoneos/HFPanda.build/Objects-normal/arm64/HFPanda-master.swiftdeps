@@ -1,8 +1,10 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "6c90237995e928df8ed9d0e765fe8c91"
-build_time: [1517499305, 30880000]
+build_time: [1519652095, 172230000]
 inputs:
-  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/GameScene.swift": [1517414554, 0]
+  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/class/Platform.swift": [1517932889, 0]
+  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/GameScene.swift": [1519652095, 0]
   "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/GameViewController.swift": [1517412144, 0]
-  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/class/HFPanda.swift": [1517413460, 0]
+  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/class/PlatformFactory.swift": [1519652095, 0]
+  "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/class/HFPanda.swift": [1517843509, 0]
   "/Users/hr-zhjh/Documents/2018LiqunDemo/Swift_Demo/HFPandaRun/HFPanda/HFPanda/AppDelegate.swift": [1517324191, 0]

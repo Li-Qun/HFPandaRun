@@ -28,6 +28,8 @@
 		A73416A42020C063001B3983 /* hit_platform.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A734169D2020C063001B3983 /* hit_platform.mp3 */; };
 		A73416A62020C0CE001B3983 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73416A52020C0CE001B3983 /* Images.xcassets */; };
 		A73416AC20220A96001B3983 /* HFPanda.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73416AB20220A96001B3983 /* HFPanda.swift */; };
+		A7F4D8A72029FCD100E6CF71 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D8A62029FCD100E6CF71 /* Platform.swift */; };
+		A7F4D8A9202A017D00E6CF71 /* PlatformFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D8A8202A017D00E6CF71 /* PlatformFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		A734169D2020C063001B3983 /* hit_platform.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit_platform.mp3; sourceTree = "<group>"; };
 		A73416A52020C0CE001B3983 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A73416AB20220A96001B3983 /* HFPanda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HFPanda.swift; sourceTree = "<group>"; };
+		A7F4D8A62029FCD100E6CF71 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		A7F4D8A8202A017D00E6CF71 /* PlatformFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				A73416AB20220A96001B3983 /* HFPanda.swift */,
+				A7F4D8A62029FCD100E6CF71 /* Platform.swift */,
+				A7F4D8A8202A017D00E6CF71 /* PlatformFactory.swift */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -222,8 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F4D8A72029FCD100E6CF71 /* Platform.swift in Sources */,
 				A734167C2020BF1F001B3983 /* GameScene.swift in Sources */,
 				A734167E2020BF1F001B3983 /* GameViewController.swift in Sources */,
+				A7F4D8A9202A017D00E6CF71 /* PlatformFactory.swift in Sources */,
 				A73416AC20220A96001B3983 /* HFPanda.swift in Sources */,
 				A73416762020BF1F001B3983 /* AppDelegate.swift in Sources */,
 			);

@@ -31,7 +31,7 @@ class GameScene: SKScene,ProtocolMainScence {
         platformFactory.createPlatform(middlPlatformNum: 2, x: -200, y: -panda.frame.size.height)
         //设置代理
         platformFactory.delegate = self
-        platformFactory.mainSceneWidth = self.frame.size.width
+        platformFactory.mainSceneWidth = self.frame.size.width //竖屏情况的恒定宽度
     }
     
     
@@ -49,7 +49,7 @@ class GameScene: SKScene,ProtocolMainScence {
         //当前移动平台完全进入场景后 创建新的平台
         if (lastDis <= 0) {
             print("创建新平台")
-            platformFactory.createPlatform(middlPlatformNum: 1, x: 1500, y: -panda.frame.size.height)
+            platformFactory.createPlatformRandom()
         }
         self.platformFactory.moveWithPlatformSpeed(speed: self.platformMoveSpeed);
     }

@@ -21,6 +21,20 @@ class PlatformFactory: SKNode {
     //主场景代理
     var delegate:ProtocolMainScence?
     
+    //创建随机长度的平台
+    func createPlatformRandom () {
+        //中间平台的数量随机
+        let midNum:Int = Int(arc4random() % 4 + 1)  // 1到4的随机数
+        //平台间距随机
+        let padding:CGFloat = CGFloat(arc4random() % 8 + 1) // 1到8的随机数
+        //横坐标x
+        let x:CGFloat = self.mainSceneWidth + CGFloat(midNum * 50) + padding + 100;
+        //纵坐标y
+        let y:CGFloat = -CGFloat(arc4random() % UInt32(self.mainSceneWidth / 2) )
+        //创建平台
+        createPlatform(middlPlatformNum: midNum, x: x, y: y)
+    }
+    
     //根据传进来的中间平台数目，搭建完整平台条 （L = 1，R = 1，M >= 1,所以只需要控制M）
     //根据 坐标x,y 得知创建平台的位置高低
     func createPlatform(middlPlatformNum:Int,x:CGFloat,y:CGFloat)   {

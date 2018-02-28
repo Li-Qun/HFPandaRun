@@ -16,6 +16,11 @@ class PlatformFactory: SKNode {
     //存放创建平台的数组集
     var platformsArray = [Platform]();
     
+    //接收主场景长度
+    var mainSceneWidth:CGFloat = 0
+    //主场景代理
+    var delegate:ProtocolMainScence?
+    
     //根据传进来的中间平台数目，搭建完整平台条 （L = 1，R = 1，M >= 1,所以只需要控制M）
     //根据 坐标x,y 得知创建平台的位置高低
     func createPlatform(middlPlatformNum:Int,x:CGFloat,y:CGFloat)   {
@@ -46,6 +51,10 @@ class PlatformFactory: SKNode {
         
         //平台加入集合
         platformsArray.append(platform)
+        
+        //每次产生新平台，要告知主场景
+        //通用公式：平台长度+ x坐标 - 主场景宽度
+        delegate?.onGetDData(dist: CGFloat(platform.width) + x - self.mainSceneWidth )
     }
     
     //平台移动

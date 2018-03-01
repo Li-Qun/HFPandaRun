@@ -76,6 +76,15 @@ class PlatformFactory: SKNode {
         for obj in self.platformsArray {
             obj.position.x -= speed
         }
+        //平台移除
+        let platform = self.platformsArray[0];
+        if platform.position.x < -CGFloat(platform.width) - self.mainSceneWidth / 2 {
+            //如果队列头部平台消失在屏幕中,UI从父视图中移除,UI从集合中移除
+            //注意坐标原点是屏幕中心
+            platform.removeFromParent()
+            self.platformsArray .remove(at: 0)
+            print("出队列释放")
+        }
     }
     
 }

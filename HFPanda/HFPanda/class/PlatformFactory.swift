@@ -28,9 +28,9 @@ class PlatformFactory: SKNode {
         //平台间距随机
         let padding:CGFloat = CGFloat(arc4random() % 8 + 1) // 1到8的随机数
         //横坐标x
-        let x:CGFloat = self.mainSceneWidth + CGFloat(midNum * 50) + padding + 100;
+        let x:CGFloat = self.mainSceneWidth + CGFloat(midNum * 50) + padding + 100
         //纵坐标y
-        let y:CGFloat = -CGFloat(arc4random() % UInt32(self.mainSceneWidth / 2) )
+        let y:CGFloat = -CGFloat(arc4random() % UInt32(80))
         //创建平台
         createPlatform(middlPlatformNum: midNum, x: x, y: y)
     }

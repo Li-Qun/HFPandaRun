@@ -31,7 +31,7 @@ class GameScene: SKScene,ProtocolMainScence {
         platformFactory.createPlatform(middlPlatformNum: 2, x: -200, y: -panda.frame.size.height)
         //设置代理
         platformFactory.delegate = self
-        platformFactory.mainSceneWidth = self.frame.size.width //竖屏情况的恒定宽度
+        platformFactory.mainSceneWidth = self.frame.size.height //竖屏情况的恒定宽度
     }
     
     

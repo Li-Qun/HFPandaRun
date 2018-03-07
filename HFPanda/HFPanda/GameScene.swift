@@ -16,7 +16,7 @@ class GameScene: SKScene,ProtocolMainScence {
     lazy var background = HFBackground()
     
     //初始化平台移动速度
-    var platformMoveSpeed:CGFloat = 15;
+    var platformMoveSpeed:CGFloat = 10;
     
     var lastDis:CGFloat = 0.0
     
@@ -51,7 +51,7 @@ class GameScene: SKScene,ProtocolMainScence {
     }
     //每一帧执行一次的系统update方法
     override func update(_ currentTime: TimeInterval) {
-        
+        background.move(speed: platformMoveSpeed/5)
         lastDis -= self.platformMoveSpeed;
         //当前移动平台完全进入场景后 创建新的平台
         if (lastDis <= 0) {

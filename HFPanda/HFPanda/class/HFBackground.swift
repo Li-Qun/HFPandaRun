@@ -76,4 +76,33 @@ class HFBackground:SKNode {
         arrBG.append(nearBg0)
         arrBG.append(nearBg1)
     }
+    //外部传进来速度值供给背景 横坐标从右边到左边移动 通过x坐标位移产生动画效果
+    //图片移动出屏幕后要瞬间归位
+    func move(speed:CGFloat) {
+        //近景
+        for bg in arrBG {
+            bg.position.x -= speed
+        }
+        //背景归位
+        let bg0 = arrBG[0];
+        let bg1 = arrBG[1];
+        if bg0.position.x + CGFloat(bg0.frame.width) < speed {
+            bg0.position.x = -UIScreen.main.bounds.size.height/2
+            bg1.position.x = bg0.position.x + bg0.frame.width
+        }
+        //远景
+        for farBg in arrFar {
+            farBg.position.x -= speed/4 //远景移动稍慢
+        }
+        //背景归位
+        let farBg0 = arrFar[0]
+        let farBg1 = arrFar[1]
+        let farBg2 = arrFar[2]
+        
+        if farBg0.position.x + CGFloat(farBg0.frame.width) < speed / 4 {
+            farBg0.position.x =  -UIScreen.main.bounds.size.height/2
+            farBg1.position.x = farBg0.position.x + farBg0.frame.width
+            farBg2.position.x = farBg1.position.x + farBg0.frame.width
+        }
+    }
 }

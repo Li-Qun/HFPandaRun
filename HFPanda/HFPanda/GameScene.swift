@@ -13,6 +13,7 @@ class GameScene: SKScene,ProtocolMainScence {
     //lazy 指当前变量 在第一次使用的时候才会初始化，即“懒加载”
     lazy var panda = HFPanda()
     lazy var platformFactory = PlatformFactory()
+    lazy var background = HFBackground()
     
     //初始化平台移动速度
     var platformMoveSpeed:CGFloat = 15;
@@ -22,12 +23,18 @@ class GameScene: SKScene,ProtocolMainScence {
     override func didMove(to view: SKView) {
         let skyColor = SKColor.init(red:113.0/255.0, green:197.0/255.0, blue:207.0/255.0, alpha:1.0)
         self.backgroundColor = skyColor
+        
+        //添加背景
+        self.addChild(background)
+        background.zPosition = 20//值越大 越先渲染
     
         panda.position =  CGPoint.init(x: 0, y: 0)
         self.addChild(panda)
+        panda.zPosition = 40
         
         //把平台工厂加入场景中
         self.addChild(platformFactory)
+        platformFactory.zPosition = 30
         platformFactory.createPlatform(middlPlatformNum: 2, x: -200, y: -panda.frame.size.height)
         //设置代理
         platformFactory.delegate = self

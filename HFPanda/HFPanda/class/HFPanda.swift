@@ -56,7 +56,15 @@ class HFPanda: SKSpriteNode {
             rollFrame.append(rollTexture)
         }
         
-        
+        //panda碰撞检测
+        self.physicsBody = SKPhysicsBody.init(rectangleOf: texture.size()) //设置碰撞体和物理碰撞检测范围
+        self.physicsBody?.categoryBitMask = BitMaskType.panda//设置碰撞检测标识
+        self.physicsBody?.isDynamic = true//碰撞结束后 要弹开
+        self.physicsBody?.allowsRotation = false//碰撞后不产生角度变化eg碰撞和翻滚都不需要产生角度变化
+        //摩擦力设置为0
+        self.physicsBody?.restitution = 0 //碰撞后不会被黏住
+        //设置关联碰撞 场景
+        self.physicsBody?.contactTestBitMask = BitMaskType.scene
         //类实例化时候就开始跑
         run()
     }

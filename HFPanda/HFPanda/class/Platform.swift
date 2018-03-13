@@ -20,5 +20,13 @@ class Platform:SKNode {
             self.addChild(childPlatform)
             self.width = Double(childPlatform.position.x + childPlatform.size.width)
         }
+        //物理实体参数
+        self.physicsBody = SKPhysicsBody.init(rectangleOf: CGSize.init(width: CGFloat(self.width), height: CGFloat(self.height)), center: CGPoint.init(x: self.width/2, y: 0)) //设置碰撞体和物理碰撞检测范围
+        self.physicsBody?.categoryBitMask = BitMaskType.platform
+        self.physicsBody?.isDynamic = false//碰撞结束后 不需要弹开
+        self.physicsBody?.allowsRotation = false//碰撞后不产生角度变化eg碰撞和翻滚都不需要产生角度变化
+        //摩擦力设置为0
+        self.physicsBody?.restitution = 0 //碰撞后不会被黏住
+        self.zPosition = 20
     }
 }

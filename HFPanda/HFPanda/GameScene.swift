@@ -22,6 +22,11 @@ class GameScene: SKScene,ProtocolMainScence,SKPhysicsContactDelegate {
     
     //物体之间碰撞就会执行beign代理方法
     func didBegin(_ contact: SKPhysicsContact) {
+        //🐼和平台
+        if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask == (BitMaskType.panda|BitMaskType.platform)) {
+            panda.run()
+            print("🐼跑")
+        }
         //🐼和场景边缘的碰撞检测
         if (contact.bodyA.categoryBitMask|contact.bodyB.categoryBitMask == (BitMaskType.panda|BitMaskType.scene)) {
             print("游戏结束")
@@ -49,7 +54,7 @@ class GameScene: SKScene,ProtocolMainScence,SKPhysicsContactDelegate {
         //把平台工厂加入场景中
         self.addChild(platformFactory)
         platformFactory.zPosition = 30
-        platformFactory.createPlatform(middlPlatformNum: 2, x: -200, y: -panda.frame.size.height)
+        platformFactory.createPlatform(middlPlatformNum: 4, x: 0, y: -panda.frame.size.height)
         //设置代理
         platformFactory.delegate = self
         platformFactory.mainSceneWidth = self.frame.size.height //竖屏情况的恒定宽度
@@ -57,11 +62,7 @@ class GameScene: SKScene,ProtocolMainScence,SKPhysicsContactDelegate {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if panda.status == .run {
-            panda.jump()
-        } else if panda.status == .jump {
-            panda.roll()
-        }
+        panda.jump()//点击屏幕时执行跳
     }
     //每一帧执行一次的系统update方法
     override func update(_ currentTime: TimeInterval) {

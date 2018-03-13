@@ -64,7 +64,9 @@ class HFPanda: SKSpriteNode {
         //摩擦力设置为0
         self.physicsBody?.restitution = 0 //碰撞后不会被黏住
         //设置关联碰撞 场景
-        self.physicsBody?.contactTestBitMask = BitMaskType.scene
+        self.physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform
+        self.physicsBody?.collisionBitMask = BitMaskType.platform //实际产生作用
+        self.zPosition = 20
         //类实例化时候就开始跑
         run()
     }

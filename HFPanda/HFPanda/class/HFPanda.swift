@@ -82,9 +82,20 @@ class HFPanda: SKSpriteNode {
     // 跳
     func jump () {
         self.removeAllActions()
-        self.status = .jump
-        //跳只跳一次
-        self.run(SKAction.animate(with: jumpFrame, timePerFrame: 0.05))
+        
+        if self.status != Status.jump2 {
+            //跳只跳一次
+            self.run(SKAction.animate(with: jumpFrame, timePerFrame: 0.05))
+            //跳起同时给熊猫向上的速度
+            self.physicsBody?.velocity = CGVector.init(dx: 0, dy: 450)
+            if self.status == .jump {
+                self.status = .jump2
+            } else {
+                self.status = .jump
+            }
+        }
+        
+    
     }
     //打滚
     func roll () {
